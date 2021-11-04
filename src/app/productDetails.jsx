@@ -1,6 +1,5 @@
 import React from 'react';
 import { Product } from '../models/product';
-import { Rating } from './rating';
 import { ReviewFrom } from './reviewForm';
 import { ReviewList } from './reviewList';
 
@@ -18,6 +17,13 @@ export class ProductDetails extends React.Component {
         {userName:"edward", rating:"3",comment:"something2", date:"2021/11/4"}]
     )
      }
+
+    addReview(newReview)
+    {
+        var reviews = this.state.product.reviews;
+        reviews.push(newReview);
+        this.setState({ reviews });
+    }
 
    
     render(){
@@ -47,7 +53,7 @@ export class ProductDetails extends React.Component {
             </div>
 
             <div>
-                <ReviewFrom />
+                <ReviewFrom  onReviewAdded={ newReview => this.addReview(newReview) }/>
             </div>
 
             </>

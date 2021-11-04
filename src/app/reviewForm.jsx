@@ -9,7 +9,8 @@ export class ReviewFrom extends React.Component {
     state = {
         userName: '',
         rating: '',
-        comment: ''
+        comment: '',
+        date: new Date().toString()
     };
 
     onAddClick() {
@@ -17,7 +18,7 @@ export class ReviewFrom extends React.Component {
         this.setState({
             userName: '',
             rating: '',
-            comment: ''
+            comment: '',
         });   
     }
 
