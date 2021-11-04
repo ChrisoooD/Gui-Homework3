@@ -13,8 +13,7 @@ export class ProductDetails extends React.Component {
         "7g of Protein per serving with no preservatives, artifical flavors or colors.",
         7.99,
         "https://johnlawrimore.com/smu/101.png",
-        [{userName:"chris", rating:"5",comment:"something", date:"2021/11/4"},
-        {userName:"edward", rating:"3",comment:"something2", date:"2021/11/4"}]
+        []
     )
      }
 
