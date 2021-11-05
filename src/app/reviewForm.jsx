@@ -25,8 +25,8 @@ export class ReviewFrom extends React.Component {
     render() {
         return <>
         
-            <div className="container border broder-secondary">
-            <div class="row"><h3 className="bg-secondary text-white">Add Review</h3></div>
+            <div className="mx-5 px-3 border broder-secondary">
+            <div class="row bg-secondary text-white">Add Review</div>
             <div class="row">
                 <div className = "col-6">Your name</div>
                 <div className = "col"> Rating</div>

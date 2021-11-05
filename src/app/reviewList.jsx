@@ -4,24 +4,25 @@ import { Card } from 'react-bootstrap';
 
 export const ReviewList   = props => (
     <>
-    <h3 style={{marginLeft:"3rem", marginRight:"3rem", marginBottom:"1rem"}}>
+    <h3 className="mx-5 mb-3">
         Product Reviews ({props.reviews.length})
     </h3>
     <div>
     {
-        !props.reviews.length&& <div style={{background:"#EEE", padding:"0.5rem 1rem", marginLeft:"3rem", marginRight:"3rem", marginBottom:"1rem"}}>Be the first to add a review!</div>
+        !props.reviews.length&& <div className="bg-light mx-5 mb-3">Be the first to add a review!</div>
     }
     {
-        <div style={{marginLeft:"3rem", marginRight:"3rem", marginBottom:"1rem"}}>
+        <div class="mx-5 mb-3">
             {props.reviews.map((ProductReview)=>(
-                <Card style={{marginBottom:"0.5rem"}}>
+                <Card class="mb-3">
                 <Card.Header><Rating value={ProductReview.rating}/></Card.Header>
                 <Card.Body>
-                <Card.Title style={{float:"right"}}>{ProductReview.date}</Card.Title>
-                  <Card.Title>{ProductReview.userName}</Card.Title>
-                  <Card.Text>
+                <Card.Title class="float-end">{ProductReview.date}</Card.Title>
+                <Card.Title >{ProductReview.userName}</Card.Title>
+                  
+                <Card.Text>
                   {ProductReview.comment}
-                  </Card.Text>
+                </Card.Text>
                 </Card.Body>
               </Card>))}
         </div>
