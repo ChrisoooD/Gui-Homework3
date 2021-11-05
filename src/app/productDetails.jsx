@@ -39,7 +39,7 @@ export class ProductDetails extends React.Component {
             
             <div style={{background:"#EEE", padding:"0.5rem 1rem", marginLeft:"3rem", marginRight:"3rem", marginBottom:"1rem"}}>
             <div class="jumbotron" >
-            <div><img src={this.state.product.imageUrl} style={{float:"left"}}/></div>
+            <div><img src={this.state.product.imageUrl} style={{float:"left"}} alt="product pricture"/></div>
             <h1 class="display-4" >{this.state.product.name}</h1>
             <h3><span class="badge bg-primary" >${this.state.product.price}</span></h3>
             <p class="lead">{this.state.product.description}.</p>

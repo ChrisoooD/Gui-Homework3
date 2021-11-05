@@ -1,6 +1,6 @@
 import React from 'react';
 import { Rating } from './rating';
-import { Button, FloatingLabel, Form} from 'react-bootstrap';
+import { Button, } from 'react-bootstrap';
 
 export class ReviewFrom extends React.Component {
     ratingValue = [
@@ -10,7 +10,7 @@ export class ReviewFrom extends React.Component {
         userName: '',
         rating: '',
         comment: '',
-        date: new Date().toString()
+        date: new Date().toDateString()
     };
 
     onAddClick() {
