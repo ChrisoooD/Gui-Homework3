@@ -28,8 +28,8 @@ export class ProductDetails extends React.Component {
     render(){
         return(
             <>
-            <div style={{background:"#EEE", padding:"0.5rem 1rem", marginLeft:"3rem", marginRight:"3rem", marginBottom:"1rem"}}>
-            <nav aria-label="breadcrumb">
+            <div className="mx-5 mb-3 px-3 py-2 bg-light">
+            <nav aria-label="breadcrumb ">
             <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="#">Tasty snacks</a></li>
             <li class="breadcrumb-item active" aria-current="page">{this.state.product.name}</li>            
@@ -37,17 +37,17 @@ export class ProductDetails extends React.Component {
             </nav>   
             </div>
             
-            <div style={{background:"#EEE", padding:"0.5rem 1rem", marginLeft:"3rem", marginRight:"3rem", marginBottom:"1rem"}}>
+            <div className="mx-5 mb-3 px-3 py-2 bg-light clearfix">
             <div class="jumbotron" >
-            <div><img src={this.state.product.imageUrl} style={{float:"left"}} alt="product pricture"/></div>
+            <div><img src={this.state.product.imageUrl} class="float-start" alt="product pricture"/></div>
             <h1 class="display-4" >{this.state.product.name}</h1>
             <h3><span class="badge bg-primary" >${this.state.product.price}</span></h3>
             <p class="lead">{this.state.product.description}.</p>
             </div>
-            <div style={{clear:"both"}}/>
+           
             </div>
-            
-            <div >
+
+            <div>
                <ReviewList reviews={this.state.product.reviews} />
             </div>
 
@@ -60,16 +60,3 @@ export class ProductDetails extends React.Component {
     }
     
 }
-export const NavBar = (props) => (
-    <>
-   
-                
-    </>
-  );
-
-
-export const ProductDesc = (props) => (
-    <>
-    
-    </>
-  );

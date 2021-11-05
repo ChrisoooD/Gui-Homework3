@@ -25,8 +25,8 @@ export class ReviewFrom extends React.Component {
     render() {
         return <>
         
-            <div className="container" style={{marginBottom:"1rem", borderStyle:"solid", maxWidth:"91%"}}>
-            <div class="row"><h3 style={{background:"#595959", color:"white"}}>Add Review</h3></div>
+            <div className="container border broder-secondary">
+            <div class="row"><h3 className="bg-secondary text-white">Add Review</h3></div>
             <div class="row">
                 <div className = "col-6">Your name</div>
                 <div className = "col"> Rating</div>
@@ -71,7 +71,7 @@ export class ReviewFrom extends React.Component {
             </div>
 
             <div class="row">
-                <div style={{marginBottom:".5rem"}}>
+                <div class='mb-3'>
                     <Button variant="primary"
                         onClick={ () => this.onAddClick() }>
                         Submit
