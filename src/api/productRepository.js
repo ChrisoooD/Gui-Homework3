@@ -6,7 +6,7 @@ export class ProductRepository {
 
     config = {
         headers: {
-            Authorization: "cdeng"
+            Authorization: "jlawrimore"
         }
     };
     
@@ -21,5 +21,15 @@ export class ProductRepository {
         });
     }
 
+    getProduct(id) {
+        return new Promise((resolve, reject) => {
+            axios.get(`${this.url}/${id}`, this.config)
+                .then(x => resolve(x.data))
+                .catch(e => {
+                    alert(e);
+                    reject(e);
+                })
+        });
+    }
 
 }

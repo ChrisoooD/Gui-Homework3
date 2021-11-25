@@ -2,27 +2,22 @@ import React from 'react';
 import { Product } from '../models/product';
 import { ReviewFrom } from './reviewForm';
 import { ReviewList } from './reviewList';
+import { ProductRepository } from '../api/productRepository';
 
 
 
 export class ProductDetails extends React.Component {
+    productRepository = new ProductRepository();
     state = {
-     product:new Product(
-        1,
-        "Jif Peanut Butter, 40 ounce",
-        "7g of Protein per serving with no preservatives, artifical flavors or colors.",
-        7.99,
-        "https://johnlawrimore.com/smu/101.png",
-        []
-    )
-     }
-
-    addReview(newReview)
-    {
-        var reviews = this.state.product.reviews;
-        reviews.push(newReview);
-        this.setState({ reviews });
+     product:new Product()
     }
+
+    // addReview(newReview)
+    // {
+    //     var reviews = this.state.product.reviews;
+    //     reviews.push(newReview);
+    //     this.setState({ reviews });
+    // }
 
    
     render(){
@@ -47,16 +42,24 @@ export class ProductDetails extends React.Component {
            
             </div>
 
-            <div>
+            {/* <div>
                <ReviewList reviews={this.state.product.reviews} />
             </div>
 
             <div>
                 <ReviewFrom  onReviewAdded={ newReview => this.addReview(newReview) }/>
-            </div>
+            </div> */}
 
             </>
         )
     }
-    
+    componentDidMount() {
+        //let id = this.props.match.params.accountId;
+        let id =0
+        console.log(this)
+        if (id) {
+            this.productRepository.getProduct(id)
+                .then(account => this.setState(account));
+        }
+    }
 }

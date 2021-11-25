@@ -12,13 +12,6 @@ export const Header = props => {
                     </Nav>
                 </Container>
             </Navbar>
-            <Navbar bg="light" variant="white">
-                <Container>
-                    <Nav className="me-auto">
-                        <p class="text-secondary">Tasty Snacks</p>
-                    </Nav>
-                </Container>
-            </Navbar>
         </>
     )
 };
