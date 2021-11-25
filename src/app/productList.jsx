@@ -1,16 +1,26 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 import { ProductRepository } from '../api/productRepository';
+import { Card, Button, CardGroup } from 'react-bootstrap';
+import { DisplayList } from './displayList';
 
-export const ProductList = props => {
-    const [products, setProducts] = useState(undefined);
-    const productRepository = new ProductRepository();
-    
-    if (!productRepository) {
-        return <div>Loading...</div>
+export class ProductList extends React.Component {
+    state = {products:[]};
+    productRepository = new ProductRepository();
+    render(){
+        return(
+            <div>
+            {this.state.products}
+            </div>
+        )
     }
 
-    return <div className="container">
-        <h2>something</h2>
-    </div>
+    componentDidMount(){
+        this.productRepository.getProducts().then(products=>this.setState(products));
+    }
+
+   
+
+
+   
 };

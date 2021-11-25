@@ -9,21 +9,17 @@ export class ProductRepository {
             Authorization: "cdeng"
         }
     };
-
-    getProducts(params) {
-        let config = this.config;
-        if (params) {
-            config.params = params;
-        }
-
+    
+    getProducts(){
         return new Promise((resolve, reject) => {
             axios.get(`${this.url}`, this.config)
                 .then(x => resolve(x.data))
-                .catch(x => {
-                    alert(x);
-                    reject(x);
-                })
+                .catch(e => {
+                    alert(e);
+                    reject();
+                });
         });
     }
+
 
 }
