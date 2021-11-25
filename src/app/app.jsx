@@ -1,8 +1,13 @@
-import { ProductDetails } from "./productDetails";
+import { Header } from "./header";
+import { ProductList } from "./productList";
 
 function App() {
   return(
-    <ProductDetails/>
+    <>
+    <Header />
+    <ProductList />
+    </>
+    
   );
 }
 
