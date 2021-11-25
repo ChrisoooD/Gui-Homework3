@@ -1,26 +1,36 @@
 import React from 'react';
-import { Product } from '../models/product';
 import { ReviewFrom } from './reviewForm';
 import { ReviewList } from './reviewList';
 import { ProductRepository } from '../api/productRepository';
 
 
-
 export class ProductDetails extends React.Component {
     productRepository = new ProductRepository();
-    state = {
-     product:new Product()
+    
+    componentDidMount() {
+        let id = this.props.match.params.productId;
+        if (id) {
+            this.productRepository.getProduct(id)
+                .then(product => this.setState({product}));
+        }
     }
 
-    // addReview(newReview)
-    // {
-    //     var reviews = this.state.product.reviews;
-    //     reviews.push(newReview);
-    //     this.setState({ reviews });
-    // }
-
+    state = {
+    }
+    addReview(newReview)
+    {
+        var reviews = this.state.product.reviews;
+        this.productRepository.addReview(this.props.match.params.productId,newReview);
+        reviews.push(newReview);
+        this.setState({ reviews });
+        
+    }
+    
    
     render(){
+        if (!this.state.product) {
+            return <div>Loading...</div>
+        }
         return(
             <>
             <div className="mx-5 mb-3 px-3 py-2 bg-light">
@@ -42,24 +52,16 @@ export class ProductDetails extends React.Component {
            
             </div>
 
-            {/* <div>
+            <div>
                <ReviewList reviews={this.state.product.reviews} />
             </div>
 
             <div>
                 <ReviewFrom  onReviewAdded={ newReview => this.addReview(newReview) }/>
-            </div> */}
+            </div>
 
             </>
         )
     }
-    componentDidMount() {
-        //let id = this.props.match.params.accountId;
-        let id =0
-        console.log(this)
-        if (id) {
-            this.productRepository.getProduct(id)
-                .then(account => this.setState(account));
-        }
-    }
+   
 }

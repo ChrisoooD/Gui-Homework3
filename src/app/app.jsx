@@ -1,6 +1,6 @@
 import { Header } from "./header";
 import { ProductList } from "./productList";
-import { BrowserRouter as Router, Route,Routes } from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import {ROUTES} from '../routes'
 
 
@@ -10,12 +10,12 @@ function App() {
     <>
     <Header />
       <Router>
-        <Routes>    
+        <Switch>    
           {
             ROUTES.map((route, index) => <Route key={index} { ...route } />)
           }      
                     
-        </Routes>
+        </Switch>
       </Router>
     </>
   );

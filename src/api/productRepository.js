@@ -9,8 +9,8 @@ export class ProductRepository {
             Authorization: "jlawrimore"
         }
     };
-    
-    getProducts(){
+
+    getProducts() {
         return new Promise((resolve, reject) => {
             axios.get(`${this.url}`, this.config)
                 .then(x => resolve(x.data))
@@ -28,6 +28,17 @@ export class ProductRepository {
                 .catch(e => {
                     alert(e);
                     reject(e);
+                })
+        });
+    }
+
+    addReview(productId,review) {
+        return new Promise((resolve, reject) => {
+            axios.post(`${this.url}/${productId}/reviews`, review, this.config)
+                .then(x => resolve(x.data))
+                .catch(x => {
+                    alert(x);
+                    reject(x);
                 })
         });
     }
