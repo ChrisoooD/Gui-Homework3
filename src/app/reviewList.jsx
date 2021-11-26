@@ -4,7 +4,8 @@ import { Card } from 'react-bootstrap';
 
 export const ReviewList   = props => (
     <>
-    <h3 className="mx-5 mb-3">
+    <div className="container">
+    <h3 >
         Product Reviews ({props.reviews.length})
     </h3>
     <div>
@@ -12,9 +13,9 @@ export const ReviewList   = props => (
         !props.reviews.length&& <div className="bg-light mx-5 mb-3">Be the first to add a review!</div>
     }
     {
-        <div class="mx-5 mb-3">
+        <div >
             {props.reviews.map((ProductReview)=>(
-                <Card class="mb-3">
+                <Card >
                 <Card.Header><Rating value={ProductReview.rating}/></Card.Header>
                 <Card.Body>
                 <Card.Title class="float-end">{ProductReview.date}</Card.Title>
@@ -27,6 +28,7 @@ export const ReviewList   = props => (
               </Card>))}
         </div>
     }
+    </div>
     </div>
     </>
        

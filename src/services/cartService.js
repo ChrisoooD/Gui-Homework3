@@ -1,5 +1,5 @@
-import Cart from './../models/cart';
-import CartItem from './../models/cartItem';
+import {Cart} from './../models/cart';
+import {CartItem} from './../models/cartItem';
 
 export class CartService {
     getCart() {
@@ -7,6 +7,7 @@ export class CartService {
     }
 
     addToCart(product) {
+        console.log("windows.cart " + window.cart);
         let cart = window.cart || new Cart();
         let existing = cart.items.find(x => x.product.id == product.id);
         if (existing) {
@@ -18,6 +19,7 @@ export class CartService {
 
         cart.total = cart.items.map(x => x.totalPrice).reduce((x, y) => x + y);
         window.cart = cart;
+        
     }
 }
 
